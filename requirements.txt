@@ -1,4 +1,7 @@
 streamlit
 tensorflow
-Pillow
+pillow
 numpy
+pandas
+matplotlib
+protobuf<4
