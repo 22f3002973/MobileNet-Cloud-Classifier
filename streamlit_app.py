@@ -49,7 +49,7 @@ def mobilenetv2_imagenet():
             labels = [label.capitalize() for _, label, _ in decoded_predictions]
             scores = [score * 100 for _, _, score in decoded_predictions]
             fig, ax = plt.subplots()
-            ax.bar(labels, scores)
+            ax.bar(labels, scores, color=['blue', 'orange', 'green'])
             ax.set_title("Confidence Scores")
             ax.set_ylabel("Confidence (%)")
             st.pyplot(fig)
