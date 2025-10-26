@@ -19,7 +19,7 @@ def mobilenetv2_imagenet():
 
         for uploaded_file in uploaded_files:
             image = Image.open(uploaded_file).convert('RGB')  # Ensure the image is RGB
-            st.image(image, caption=f"Uploaded Image: {uploaded_file.name}", use_column_width=True)
+            st.image(image, caption=f"Uploaded Image: {uploaded_file.name}", use_container_width=True)
 
             # Preprocess the image
             img = image.resize((224, 224))
