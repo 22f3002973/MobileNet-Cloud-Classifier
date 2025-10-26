@@ -49,14 +49,13 @@ def mobilenetv2_imagenet():
             labels = [label.capitalize() for _, label, _ in decoded_predictions]
             scores = [score * 100 for _, _, score in decoded_predictions]
             fig, ax = plt.subplots()
-            ax.bar(labels, scores, color=['blue', 'orange', 'green'])
+            ax.bar(labels, scores)
             ax.set_title("Confidence Scores")
             ax.set_ylabel("Confidence (%)")
             st.pyplot(fig)
 
-
+        # Download csv
         if results:
-            import pandas as pd
             st.download_button(
                 label="Download Predictions as CSV",
                 data=pd.DataFrame(results).to_csv(index=False),
@@ -65,10 +64,7 @@ def mobilenetv2_imagenet():
             )
 
 
-
-
-
-            # Welcome page
+# Welcome page
 def welcome_page():
     st.title("Welcome to Image Classification App")
     st.write(
@@ -81,15 +77,14 @@ def welcome_page():
         - Get real-time predictions with confidence scores.
         - Download results as a CSV file.
         - Visualize confidence scores with bar charts.
-        
-        
         """
     )
+
 
 # Main function to control the navigation
 def main():
     st.sidebar.title("Navigation")
-    choice = st.sidebar.radio("Choose an Option", ("Welcome", "CIFAR-10 Classification", "MobileNetV2 (ImageNet)"))
+    choice = st.sidebar.radio("Choose an Option", ("Welcome", "MobileNetV2 (ImageNet)"))
     
     if choice == "Welcome":
         welcome_page()
